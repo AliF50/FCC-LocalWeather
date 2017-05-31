@@ -6,17 +6,16 @@ app.controller('WeatherController', ['$scope', 'locationFactory', 'weatherFactor
 
     locationFactory.getData().then(function(result) {
         console.log(result.data);
-        $scope.locationData.lat = result.data.loc.split(',')[0];
-        $scope.locationData.lon = result.data.loc.split(',')[1];
+        $scope.locationData.loc = result.data.loc
         $scope.locationData.city = result.data.city;
         $scope.locationData.region = result.data.region;
         $scope.locationData.country = result.data.country;
         console.log($scope.locationData);
-        weatherFactory.getData($scope.locationData.lat, $scope.locationData.lon, $scope.units).then(function(result) {
+        weatherFactory.getData($scope.locationData.loc).then(function(result) {
             console.log(result.data);
-            $scope.weatherData.temp = result.data.main.temp;
-            $scope.weatherData.icon = result.data.weather[0].icon;
-            $scope.weatherData.desc = result.data.weather[0].main;
+            $scope.weatherData.temp = result.data.current.temp_c;
+            $scope.weatherData.icon = result.data.current.condition.icon;
+            $scope.weatherData.desc = result.data.current.condition.text;
         });
     });
 

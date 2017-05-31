@@ -1,9 +1,9 @@
 app.factory('weatherFactory', ['$http', function($http) {
     var factory = {};
 
-    factory.getData = function(lat, lon, units) {
+    factory.getData = function(loc) {
 
-        return $http.get('http://api.openweathermap.org/data/2.5/weather?lat=' + lat + '&lon=' + lon + '&appid=e82ef0a324f3f4965a0dcc11a0e6c987&units=' + units);
+        return $http.get('https://api.apixu.com/v1/current.json?key=b063d40dbb434ee7918174744173105&q=' + loc);
     };
 
     return factory;
