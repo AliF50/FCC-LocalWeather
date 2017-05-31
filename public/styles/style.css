@@ -7,8 +7,9 @@
     left: 50%;
     padding-left: 10px;
     margin: -100px 0 0 -150px;
-    background: lightblue;
-    opacity: 0.85;
+    background: white;
+    border-radius: 20px;
+    opacity: 0.95;
 }
 
 #weatherIcon {
@@ -16,5 +17,6 @@
 }
 
 body {
-    background-color: grey;
+    background-image: url('../images/487.jpg');
+    background-repeat: repeat-x;
 }
